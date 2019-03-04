@@ -78,13 +78,6 @@ function cursorCheck(str, search_words) {
 console.log(cursorCheck('Hello I am OstaP', 'ostap', 'cursor', 'ironman'));
 console.log(cursorCheck('Superman is here', 'ostap', 'cursor', 'ironman'));
 
-//9. A function which returns a string with all letters in uppercase (without built in string’s method). The function supports only english alphabet.
-function toUppercase(str) { 
-   let res = str.toUpperCase();
-   return res;
-}
-console.log(toUppercase('abc'));
-
 //10. A function which removes duplication of letters in string. The function must be case-insensitive.
 function removeDuplicationLetters(str) {
 	let strArr = str.split('');
