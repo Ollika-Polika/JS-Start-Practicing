@@ -16,13 +16,11 @@ function reverse (str) {
 console.log(reverse('abc'));
 
 // 3. A function which prints the stair picture of size n
-let i = 1;
 function countWays(n) {
-	while (i<=n) {
+	for (i=1; i<=n; i++) {
 		let stair = '#';
 		let stairs = stair.repeat(i);
 		console.log(stairs);
-		i++;
 	}
 }
 countWays(3);
@@ -30,9 +28,9 @@ countWays(3);
 //4. A function which returns total sum of a range
 function sumRange(start, end) { 
   let myArr = [];
-  for (let i = start; i <= end; i++)
-  myArr.push(i);
-  return myArr.reduce(function(a, b){
+    for (let i = start; i <= end; i++)
+    myArr.push(i);
+    return myArr.reduce(function(a, b){
     return a + b;   
   });
 };
@@ -60,7 +58,6 @@ function printPyramid(n) {
 }
 printPyramid(5);
 
-
 //7. A function which transforms first and last letter to uppercase
 function firstAndLastToUpper(str) {
    let res = str[0].toUpperCase() + str.substring(1, str.length - 1) + str[str.length -1].toUpperCase();
@@ -68,29 +65,40 @@ function firstAndLastToUpper(str) {
 }
 console.log(firstAndLastToUpper('abc'));
 
-
 //8. A function which returns true if string contains ironman or cursor or ostap otherwise returns false. The function must be case-insensitive.!!!!!!!!!!!!!!!!!
-function cursorCheck(str, search_words) {
-    let result = str.search(new RegExp(search_words, "i"));
-    access = (result > 0) ? true : false; 
-    return access;
+function cursorCheck(str) {
+  let result = str.search(new RegExp('ostap|cursor|ironman', 'i'));
+  access = (result > 0) ? true : false; 
+  return access;
+}
+console.log(cursorCheck('Hello I am OstaP'));
+console.log(cursorCheck('Superman is here'));
+
+//9. A function which returns a string with all letters in uppercase
+function toUppercase(str) {
+   let  toUp = '';
+   for (let i = 0; i < str.length; i++) {
+      toUp += String.fromCharCode(str.charCodeAt(i) & 223);
    }
-console.log(cursorCheck('Hello I am OstaP', 'ostap', 'cursor', 'ironman'));
-console.log(cursorCheck('Superman is here', 'ostap', 'cursor', 'ironman'));
+   console.log(toUp);
+}
+toUppercase('abc');
 
 //10. A function which removes duplication of letters in string. The function must be case-insensitive.
 function removeDuplicationLetters(str) {
-	let strArr = str.split('');
-    let newArr = [];
-    let len = strArr.length;
+	let strArr = str.toLowerCase().split('');
+  let newArr = [];
+  let len = strArr.length;
     for (let i = 0; i < len; i++) {
     	if (newArr.indexOf(strArr[i]) === -1) {
-    		newArr.push(strArr[i]);
-    	}
+        newArr.push(strArr[i]);
+      } else if ((strArr[i]) === " ") {
+        newArr.push(strArr[i]);
+      }
     }
-    console.log(newArr.join(''));
+  console.log(newArr.join(' '));
 }
-removeDuplicationLetters("Hello I am Iron man");
+removeDuplicationLetters("Hello I am Iron Man");
 
 //11. A function that when given a number n returns the n-th number in the Fibonacci Sequence.
 function fibonacci(n) {
